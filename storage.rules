@@ -1,0 +1,34 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    function signedIn() { return request.auth != null; }
+    function owner() { return signedIn() && firestore.get(/databases/(default)/documents/system/bootstrap).data.ownerUid == request.auth.uid; }
+    match /roleApplications/{uid}/{requestId}/{fileName} {
+      allow read: if signedIn() && (request.auth.uid == uid || owner());
+      allow write: if signedIn() && request.auth.uid == uid && request.resource != null && request.resource.size < 10 * 1024 * 1024 && request.resource.contentType.matches('image/.*');
+      allow delete: if signedIn() && (request.auth.uid == uid || owner());
+    }
+    match /profile/{uid}/{allPaths=**} {
+      allow read: if signedIn();
+      allow write: if signedIn() && request.auth.uid == uid && request.resource.size < 10 * 1024 * 1024 && request.resource.contentType.matches('image/.*');
+    }
+    match /posts/{uid}/{allPaths=**} {
+      allow read: if signedIn();
+      allow write: if signedIn() && request.auth.uid == uid && request.resource.size < 50 * 1024 * 1024 && request.resource.contentType.matches('image/.*|video/.*');
+    }
+    // Conversation-scoped chat media. A signed-in user can access an image only
+    // when they are a member of that conversation and the uploader path matches.
+    match /chatMedia/{conversationId}/{uid}/{fileName} {
+      function members() { return firestore.get(/databases/(default)/documents/conversations/$(conversationId)).data.members; }
+      function conversationExists() { return firestore.exists(/databases/(default)/documents/conversations/$(conversationId)); }
+      allow read: if signedIn() && conversationExists() && members() is list && request.auth.uid in members() && uid in members();
+      allow create: if signedIn() && conversationExists() && request.auth.uid == uid && members() is list && request.auth.uid in members() && request.resource != null && request.resource.size > 0 && request.resource.size < 10 * 1024 * 1024 && request.resource.contentType.matches('image/.*');
+      allow update: if false;
+      allow delete: if signedIn() && request.auth.uid == uid && conversationExists() && request.auth.uid in members();
+    }
+    match /stories/{uid}/{allPaths=**} {
+      allow read: if signedIn();
+      allow write: if signedIn() && request.auth.uid == uid && request.resource.size < 50 * 1024 * 1024 && request.resource.contentType.matches('image/.*|video/.*');
+    }
+  }
+}

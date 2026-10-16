@@ -1,0 +1,8 @@
+PASS140 static checks
+1. Input archive integrity: PASS (verified before extraction)
+2. Theme file contains light and dark schemes: 2
+3. Green accent in both schemes: 2
+4. Splash uses BoxFit.cover: 0
+5. Onboarding uses BoxFit.cover: 1
+6. Existing launcher icon density assets: 5
+7. Flutter analyze/build: NOT RUN — Flutter/Dart executables unavailable in this environment.

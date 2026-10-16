@@ -1,0 +1,7 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <bitmap
+            android:src="@drawable/lef_launch_splash_dark"
+            android:gravity="fill" />
+    </item>
+</layer-list>

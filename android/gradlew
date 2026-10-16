@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+set -eu
+if ! command -v gradle >/dev/null 2>&1; then
+  echo "Gradle command not found. Install/use Gradle 8.14 in the Flutter/Termux environment." >&2
+  exit 127
+fi
+exec gradle "$@"

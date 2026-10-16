@@ -1,0 +1,6 @@
+PASS JSON parse: firestore.indexes.json
+PASS JSON parse: android/app/google-services.json
+PASS YAML parse: pubspec.yaml
+PASS static API presence: submitReview, submitComplaint, reviewItem, createRecord, updateRecord, parseProductCsv, toCsv, branchPerformance, isWithinAvailability
+PASS version metadata: 1.0.0+75 / versionCode 75
+PASS static Firestore rules anchors for company operations and append-only audit

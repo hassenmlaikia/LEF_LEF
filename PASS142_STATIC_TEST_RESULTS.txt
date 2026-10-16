@@ -1,0 +1,14 @@
+LEF_LEF PASS142 static checks
+PASS: source ZIP integrity checked before extraction
+PASS: profile saved-items method has been replaced with structured implementation
+PASS: settings legal/privacy sheet has been replaced with structured implementation
+PASS: chat conversation state/build/message bubble have been replaced with structured implementation
+PASS: chat image upload and authenticated Storage media rendering retained
+PASS: idempotent text-message retry ID retained
+BLOCKED: tool/lef_lef_static_audit.sh stops at ATOMIC PROVIDER APPLICATION DEDUPE MISSING
+NOT RUN: flutter analyze (Flutter SDK unavailable)
+NOT RUN: dart format (Dart SDK unavailable)
+NOT RUN: Android APK build (Flutter/Android build toolchain unavailable)
+NOT RUN: Firebase/device integration tests
+PASS: remaining static regression assertions completed using a temporary probe that normalized formatting-sensitive checks
+OPEN: provider application dedupe is not atomic across simultaneous submissions; follow-up required

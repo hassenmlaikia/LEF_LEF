@@ -1,0 +1,10 @@
+PASS138 static contract test
+- PASS: release metadata is 1.0.0+78 / versionCode 78
+- PASS: preflight metadata synchronized
+- PASS: all 20 requested helper groups present
+- PASS: google-services.json and firestore.indexes.json parsed as JSON
+- PASS: pubspec.yaml parsed with PyYAML
+- PASS: source archive integrity verified before extraction
+- PASS: project static audit (tool/lef_lef_static_audit.sh)
+- BLOCKED: Flutter preflight; `flutter: command not found`
+- NOT RUN: flutter analyze, dart format, APK build, Firebase emulator/device tests

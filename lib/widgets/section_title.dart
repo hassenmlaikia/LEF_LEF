@@ -1,0 +1,2 @@
+import 'package:flutter/material.dart';
+class SectionTitle extends StatelessWidget{const SectionTitle(this.title,{super.key,this.action});final String title;final VoidCallback? action;@override Widget build(BuildContext c)=>Row(children:[Text(title,style:const TextStyle(fontSize:19,fontWeight:FontWeight.w900)),const Spacer(),if(action!=null)TextButton(onPressed:action,child:const Text('شوف الكل'))]);}

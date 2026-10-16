@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "562117798719",
+    "project_id": "lef-lef",
+    "storage_bucket": "lef-lef.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:562117798719:android:fa2ea82174dec18cb2418a",
+        "android_client_info": {
+          "package_name": "com.leflef.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "562117798719-u6sthvk1j6o59sj6i7p6s7qmeql1i306.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1OVeXBeyrOt9yTQg8H98cbhi_wvRY6_Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "562117798719-u6sthvk1j6o59sj6i7p6s7qmeql1i306.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
